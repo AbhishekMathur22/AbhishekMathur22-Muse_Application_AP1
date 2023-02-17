@@ -1,0 +1,124 @@
+<html>
+    
+    <link rel="stylesheet" href=
+        "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        
+        <style>
+                .navbar-custom {
+                    background-color: rgb(24, 34, 82);
+                
+            }
+            /* Modify brand and text color */
+            
+            .navbar-custom .navbar-brand,
+            .navbar-custom .navbar-text {
+                color: rgb(255, 255, 255);
+            }
+
+            img {
+            display: block;     
+            }
+
+            #logo{
+            margin-left: 90%;       
+            }
+
+            #plot{
+            margin-right:auto;  
+            margin-left: auto; 
+            border-radius: 11px;    
+            }
+            
+            h1 {
+            text-align: center;
+            } 
+        
+                body {
+                    background-color: rgb(219, 233, 238);
+            }
+        
+        </style>
+ 
+       
+        <body>
+            
+
+            <div class="navbar-item">
+            
+                <nav class="navbar navbar-custom">
+                    <a class="navbar-brand" href="{{ url_for('about') }}" class="navbar-item" >About</a>
+                    <img id="logo" align ='margin-right' src='/static/images/jacob_logo.jpeg' width=120" height="100" >
+                </nav>
+            </div>
+        
+            <br>
+
+            <h1 style="color: rgb(22, 76, 120)">Brain-Computer Interface for real time feedback of EEG data</h1>
+            
+        <body>
+
+         
+        <form action="/" method="POST">
+
+            <center>
+                <br>
+            <select name="channel" id="lst" class="Input" onChange="enable(this)">
+                {% for o in channel %}
+                <option value="{{ o.noc }}">{{ o.noc }}</option>
+                {% endfor %}
+            </select> 
+
+            <button disabled="true" id="btn" type="submit" value="submit";">Submit</button>
+
+            <br>
+            <br>
+            <button type="button" onclick="window.location.href='{{ url_for( 'participant_page') }}';">Participant Tab</button>
+
+            <script type='text/javascript'>
+                
+                function enable(channels)
+                    {
+                    var btn=document.getElementById("btn");
+                    if(channels.value == 'Channel Number') 
+                    {
+                        btn.disabled = true
+                    }
+                    else 
+                    {
+                        btn.disabled = false
+                    }
+                    }
+
+            </script>
+
+
+            </center>
+            
+            <br>
+          
+            <img id="plot" src={{url}} width=1700" height="900" alt=" Graph will be displayed here. Choose the channel Number then 
+                    click on Submit button and please wait...">
+                
+            <center>
+                    <div style="width: 1500px; height: 250px;">
+                        <p style="text-align:justify;">
+                            <h4>
+                                Total Frequency bands power: {{tot}} V^2 / Hz 
+                                <br><br>
+                                Total Delta band power: {{sum_delta}} V^2 / Hz    ||    Relative Delta power: {{delta_band_power}} %
+                                <br><br>
+                                Total Theta band power: {{sum_theta}} V^2 / Hz    ||    Relative Theta power: {{theta_band_power}} % 
+                                <br><br>
+                                Total Alpha band power: {{sum_alpha}} V^2 / Hz    ||    Relative Aplha power: {{alpha_band_power}} % 
+                                <br><br>
+                                Total Beta band power: {{sum_beta}} V^2 / Hz   ||    Relative Beta power: {{beta_band_power}} %
+                            </h4> 
+                        </p>
+                    </div> 
+            </center>
+
+        </form>
+
+    </body>
+    
+</html>

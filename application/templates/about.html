@@ -1,0 +1,104 @@
+<html>
+    <body>
+
+        <link rel="stylesheet" href=
+            "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+
+        <style>
+            .navbar-custom {
+                background-color: rgb(24, 34, 82);
+            }
+                 /* Modify brand and text color */
+         
+            .navbar-custom .navbar-brand,
+            .navbar-custom .navbar-text {
+                color: rgb(255, 255, 255);
+            }
+
+            img {
+                display: block;
+            }
+
+            h1 {
+                text-align: center;
+            } 
+
+            body {
+                background-color: rgb(219, 233, 238);
+            }
+
+            #logo{
+                margin-left: 90%;       
+            }
+
+            #plot{
+                margin-right:auto;  
+                margin-left: auto; 
+                border-radius: 11px;    
+            }
+                
+        </style>
+
+
+
+        <div class="navbar-item">
+                    
+            <nav class="navbar navbar-custom">
+                <a class="navbar-brand" href="{{ url_for('calculate') }}" class="navbar-item" >Home</a>
+                <img id="logo" align ='margin-right' src='/static/images/jacob_logo.jpeg' width=120" height="100" >
+            </nav>
+        </div>
+
+
+        <br>
+
+        <h1 style="color: rgb(22, 76, 120)">About</h1>
+
+        <br><br>
+
+        <center>
+            <div style="width: 1500px; height: 200px;">
+                <h4>
+                    <p style="text-align:justify;">
+                    The technology of reading human mental states is a leading innovation in the biomedical engineering field. 
+                    With the help of this application and Muse device, EEG signal processing is going to help us to explore the uniqueness of brain signal that carries thousands of information in human being. 
+                    The aim of this application is to analyze brain signal features between pleasure and displeasure mental state. 
+                    Brainwaves is divided into 4 sub frequency bands namely delta (1.5 – 4 Hz), theta (4 – 8 Hz), alpha (8 – 14 Hz) and beta (14 – 30 Hz). 
+                    </p>
+                </h4>
+            </div>
+         
+
+            <br>
+            
+            
+            <img id="plot" src={{url}} width=1200" height="800">
+
+            <br>
+            <br>
+                    
+            <button type="button" onclick="window.location.href='{{ url_for('calculate') }}';">Home</button>
+
+            <br>
+            <br>
+            <br>
+            <br>
+        </center>
+
+        <center>
+            <div style="width: 1500px; height: 250px;">
+                <p style="text-align:justify;">
+                       Note: This website is student lab work and does not necessarily reflect Jacobs University Bremen opinions. 
+                Jacobs University Brem en does not endorse this site, nor is it checked by Jacobs University Bremen
+                regularly, nor is it part of the o fficial Jacobs University Brem en web presence. 
+                For each external link existing on this website, we initially have checked that the target page 
+                does not contain contents which is illegal wrt. German jurisdiction. However, as we have no in -
+                fluence on such contents, this may change without our notice. Therefore we deny any respon sibility for the websites referenced through our external links from h ere. 
+                No information conflicting with GDPR is stored in the server
+                </p>
+            </div>
+        </center>
+    </body>
+
+</html>

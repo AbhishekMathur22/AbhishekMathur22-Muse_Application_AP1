@@ -1,0 +1,106 @@
+<html>
+    
+    <head>
+        
+        <link rel="stylesheet" href=
+        "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        
+        <style>
+             .navbar-custom {
+            background-color: rgb(24, 34, 82);
+            }
+            /* Modify brand and text color */
+         
+            .navbar-custom .navbar-brand,
+            .navbar-custom .navbar-text {
+                color: rgb(255, 255, 255);
+            }
+
+            img {
+            display: block;
+           
+            }
+
+            h1 {
+            text-align: center;
+            } 
+
+            h2 {
+            text-align: center;
+            } 
+          
+            body {
+                background-color: rgb(219, 233, 238);
+            }
+                
+            #logo{
+            margin-left: 90%;       
+            }
+
+            #plot{
+            margin-right:auto;  
+            margin-left: auto; 
+            border-radius: 11px;    
+            }
+        </style>
+
+    </head>
+       
+        <body>
+            
+            <nav class="navbar navbar-custom">
+                <a class="navbar-brand" href="{{ url_for('calculate') }}"  >Home</a>
+                <a class="navbar-brand" href="{{ url_for('about') }}" >About</a>
+                <img id="logo" align ='margin-right' src='/static/images/jacob_logo.jpeg' width=120" height="100" >  
+            </nav>
+            
+            <br>
+            
+            <h1 style="color: rgb(22, 76, 120)">Brain-Computer Interface for real time feedback of EEG data (Band Specific)</h1>
+           
+            <br>
+            
+
+        <form action="/participant_page" method="POST">
+
+            <center>
+
+           
+            
+                <select name="band" id="lst" class="Input" onChange="enable(this)">
+                    {% for o in band %}
+                    <option value="{{ o.band }}">{{ o.band }}</option>
+                    {% endfor %}
+                </select> 
+
+                <button disabled="true" id="btn" type="submit" value="submit";">Submit</button>
+
+                <script type='text/javascript'>
+
+                    function enable(bands)
+                        {
+                        var btn=document.getElementById("btn");
+                        if(bands.value == 'Select Band Name') 
+                        {
+                            btn.disabled = true
+                        }
+                        else 
+                        {
+                            btn.disabled = false
+                        }
+                        }
+                </script>
+
+            </center>
+            
+            <br>
+            <br>
+
+            <img id="plot" src={{url_}} width=1700" height="900" alt="NOTE: Graph will be displayed here...  Please connect the muse device 
+            then select channel number and then click on submit button. Then chose the band range to get the specific band information...">
+
+        </form>
+
+    </body>
+    
+</html>
